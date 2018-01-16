@@ -8,7 +8,10 @@ public class ModuleRecycling : MonoBehaviour {
 
     private void OnTriggerEnter (Collider other)
     {
-        print("RECYCLE");
-        gameManager.SpawnNewModule(other.transform.parent.gameObject);
+        if(other.gameObject.tag =="Recycle")
+        {
+            print("RECYCLE");
+            gameManager.SpawnNewModule(other.transform.parent.gameObject);
+        }
     }
 }

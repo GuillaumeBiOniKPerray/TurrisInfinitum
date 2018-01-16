@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
-  player: {fileID: 1536661956162774, guid: 03d330a9170a40c4199c01c5ce8d1f5c, type: 2}
+  player: {fileID: 1414787241404474, guid: 8eeb2e3edcf30cc4d8f71792a05496e2, type: 2}
   movingObjects: {fileID: 0}
   playerStart: {fileID: 0}
+  mainCamera: {fileID: 0}
+  moduleSpawner: {fileID: 0}
+  modulesPool: []
+  upwardSpeed: 0
