@@ -25,12 +25,9 @@ public class CamScript : MonoBehaviour {
         if (_isRotating)
         {
             CameraRotation();
-            print("actualAngle: " + actualAngle);
-            print("Y: " + transform.rotation.eulerAngles.y);
             _delay += Time.deltaTime;
             if (_delay >= .5f)
             {
-                print("ROTATE");
                 _isRotating = false;
                 _delay = 0;
             }
