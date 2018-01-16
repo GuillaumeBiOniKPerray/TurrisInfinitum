@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public Text scoreText;
+
     public GameObject player;
     public GameObject movingObjects;
     public GameObject playerStart;
+    public GameObject mainCamera;
+
+    public float upwardSpeed;
 
     private float _actualScore;
     private float _scoreDelay;
+    private float _camOffset = 15;
 
     private bool _scoreUp = true;
     private bool _isPlaying = true;
@@ -20,6 +25,7 @@ public class GameManager : MonoBehaviour {
     {
         Vector3 initPlayerPos = playerStart.transform.position;
         GameObject newPlayer = Instantiate(player, initPlayerPos, playerStart.transform.rotation);
+        player = newPlayer;
     }
 
     private void Update()
@@ -27,6 +33,8 @@ public class GameManager : MonoBehaviour {
         if(_isPlaying)
         {
             _scoreDelay += Time.deltaTime;
+            movingObjects.transform.position = new Vector3(movingObjects.transform.position.x, player.transform.position.y, movingObjects.transform.position.z);
+            mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, player.transform.position.y + _camOffset, mainCamera.transform.position.z);
 
             if (_scoreDelay >= 0.5f)
             {
