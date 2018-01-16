@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour {
     public GameObject movingObjects;
     public GameObject playerStart;
     public GameObject mainCamera;
+    public GameObject moduleSpawner;
+
+    public GameObject[] modulesPool;
 
     public float upwardSpeed;
+
 
     private float _actualScore;
     private float _scoreDelay;
@@ -23,6 +27,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
+        BeginingModules();
         Vector3 initPlayerPos = playerStart.transform.position;
         GameObject newPlayer = Instantiate(player, initPlayerPos, playerStart.transform.rotation);
         player = newPlayer;
@@ -59,5 +64,19 @@ public class GameManager : MonoBehaviour {
     {
         _isPlaying = playState;
         return _isPlaying;
+    }
+
+    public void SpawnNewModule (GameObject moduleToDestroy)
+    {
+        Destroy(moduleToDestroy.gameObject);
+        Instantiate(modulesPool[Random.Range(0, modulesPool.Length)], moduleSpawner.transform.position, Quaternion.identity);
+        moduleSpawner.transform.position = new Vector3(moduleSpawner.transform.position.x, moduleSpawner.transform.position.y + 15, moduleSpawner.transform.position.z);
+    }
+
+    public void BeginingModules()
+    {
+        Instantiate(modulesPool[0], new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(modulesPool[Random.Range(0, modulesPool.Length)], new Vector3(0, 15, 0), Quaternion.identity);
+        Instantiate(modulesPool[Random.Range(0, modulesPool.Length)], new Vector3(0, 30, 0), Quaternion.identity);
     }
 }
