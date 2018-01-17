@@ -6,7 +6,7 @@ public class CamScript : MonoBehaviour {
 
     public Transform camTarget;
 
-    public float camSpeed;
+    public float camSpeed; //Vitesse de rotation de la caméra
 
     private float actualAngle;
     private float _delay;
@@ -19,10 +19,9 @@ public class CamScript : MonoBehaviour {
         transform.LookAt(camTarget);
 	}
 	
-	// Update is called once per frame
 	void Update () {
 
-        if (_isRotating)
+        if (_isRotating) 
         {
             CameraRotation();
             _delay += Time.deltaTime;
@@ -35,13 +34,13 @@ public class CamScript : MonoBehaviour {
 
     }
 
-    public void CameraRotation ()
+    public void CameraRotation () //Fonction de rotation de la camera
     {
         Vector3 targetPos = camTarget.transform.position;
         transform.RotateAround(targetPos, new Vector3(0, 1, 0), -45 * Time.deltaTime * camSpeed);
     }
 
-    public bool SetIsRotating (bool isRotating)
+    public bool SetIsRotating (bool isRotating) //SETTER
     {
         _isRotating = isRotating;
         return isRotating;

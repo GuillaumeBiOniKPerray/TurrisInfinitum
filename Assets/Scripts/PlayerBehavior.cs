@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour {
 
     public GameManager gameManager;
+
     public Swipe swipeControls;
+
     public float speed;
     public float jumpForce;
     public float jumpLenght;
@@ -13,15 +15,14 @@ public class PlayerBehavior : MonoBehaviour {
     private bool _isGrounded = true;
 
     void Start () {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //Récupère le GameManager sur la scène
 	}
 	
 	void Update () {
 
-        if (gameManager.GetIsPlaying())
+        if (gameManager.GetIsPlaying()) // Vérifie si le jeu est en pause ou non
         {
-            transform.Translate(-transform.forward * speed * Time.deltaTime);
-
+            transform.Translate(transform.InverseTransformDirection(transform.forward) * speed * Time.deltaTime);
             Jump();
             /*if (swipeControls.SwipeDown && _isGrounded)
             {
@@ -32,7 +33,7 @@ public class PlayerBehavior : MonoBehaviour {
        
     }
 
-    void Jump()
+    void Jump() // Fonction de saut régler sur le swipe vers le haut (ou click and drag avec la souris)
     {
         if (swipeControls.SwipeUp && _isGrounded)
         {
@@ -42,7 +43,7 @@ public class PlayerBehavior : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) //Fonction vérifiant que le joueur soit sur le sol (empêche le double saut)
     {
         if(collision.gameObject.tag =="Ground")
         {

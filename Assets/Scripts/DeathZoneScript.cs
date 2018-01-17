@@ -12,13 +12,17 @@ public class DeathZoneScript : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //Mort du player lorsqu'il franchi cette zone
     {
         if(other.gameObject.tag == "Player")
         {
-            print("HIT" + other.gameObject.name);
-            gameManager.SetIsPlaying(false);
-            gameManager.GameOverPanel();
+            GameOver();
         }
+    }
+
+    public void GameOver () // Apparition de l'écran GameOver
+    {
+        gameManager.SetIsPlaying(false);
+        gameManager.GameOverPanel();
     }
 }

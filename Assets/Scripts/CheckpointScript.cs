@@ -7,25 +7,12 @@ public class CheckpointScript : MonoBehaviour {
     public GameObject mainCamera;
     public CamScript scriptCamera;
 
-    //public bool _isRotating;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
 
-        
-        
-    }
-
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) //Lorsque le joueur touche un "checkpoint", il tourne de -90° et la camera suit son mouvement
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.Rotate(0, -45, 0);
-            //mainCamera.transform.position = Vector3.Lerp
+            other.transform.Rotate(0, -90, 0);
             scriptCamera.SetIsRotating(true);
         }
     }
