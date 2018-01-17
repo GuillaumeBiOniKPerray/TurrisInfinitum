@@ -306,7 +306,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 54464566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1849329444}
+        m_MethodName: BuyPink
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1542828184447230, guid: fd7930333097e0147a5e6f7bcee20894,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &54464566
@@ -1586,6 +1598,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 395743734}
+--- !u!1 &449640915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 449640916}
+  - component: {fileID: 449640917}
+  m_Layer: 0
+  m_Name: ScenePath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449640916
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449640915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.745462, y: 25.640875, z: -16.115883}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449640917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449640915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e045b1961600c34790762f2286d3d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1414787241404474, guid: 8eeb2e3edcf30cc4d8f71792a05496e2, type: 2}
 --- !u!1 &451749794
 GameObject:
   m_ObjectHideFlags: 0
@@ -4925,7 +4978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1105471319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5694,7 +5747,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1280968439}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1465521093}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1280968439
@@ -6158,6 +6222,7 @@ GameObject:
   - component: {fileID: 1465521091}
   - component: {fileID: 1465521090}
   - component: {fileID: 1465521089}
+  - component: {fileID: 1465521093}
   m_Layer: 5
   m_Name: Canvas_Menu
   m_TagString: Untagged
@@ -6244,6 +6309,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1465521093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1465521088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd30282fa04de34893c8a1008da671a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyAmount: {fileID: 726689386}
 --- !u!1 &1509076214
 GameObject:
   m_ObjectHideFlags: 0
@@ -6332,7 +6409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1532237993
 Transform:
   m_ObjectHideFlags: 0
@@ -7937,6 +8014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afff5e22e9325f4392dc982c38e33bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuInfo: {fileID: 449640917}
 --- !u!1 &1859718133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8148,10 +8226,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1849329444}
         m_MethodName: BuyJaune
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1220316227336700, guid: 10d642579aa12744eac3ed1027465a1f,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

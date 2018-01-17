@@ -12,6 +12,14 @@ public class DeathZoneScript : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
+    private void Update() //Right Click to kill (Testing Purposes)
+    {
+        if(Input.GetMouseButtonUp(1))
+        {
+            GameOver();
+        }
+    }
+
     private void OnTriggerEnter(Collider other) //Mort du player lorsqu'il franchi cette zone
     {
         if(other.gameObject.tag == "Player")

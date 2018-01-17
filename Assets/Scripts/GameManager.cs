@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    public SceneCommunicationScript menuInfo;
+
     public Text scoreText;
     public Text highscoreText;
+    public Text playerNameText;
 
     public GameObject player;
     public GameObject movingObjects;
@@ -35,9 +38,10 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         BeginingModules(); //Instantiate the first modules
-
+        menuInfo = GameObject.Find("ScenePath").GetComponent<SceneCommunicationScript>();
+        print(menuInfo.player);
         Vector3 initPlayerPos = playerStart.transform.position;
-        GameObject newPlayer = Instantiate(player, initPlayerPos, playerStart.transform.rotation); //Instantiate Player
+        GameObject newPlayer = Instantiate(menuInfo.player, initPlayerPos, playerStart.transform.rotation); //Instantiate Player
         player = newPlayer;
 
         gameOverPanel.SetActive(false);

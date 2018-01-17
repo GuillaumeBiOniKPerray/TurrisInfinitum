@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoginScreenScript : MonoBehaviour {
 
-    public class newUser
+    /*public class newUser
     {
         public string name;
         public int index;
@@ -16,11 +16,13 @@ public class LoginScreenScript : MonoBehaviour {
             name = na;
         }
 
-    }
+    }*/
 
     List<string> userNames = new List<string> { "Fucus Antiqua" };
 
-    public newUser newGameUser;
+    public string playerName;
+
+    //public newUser newGameUser;
 
     public InputField textField;
 
@@ -30,15 +32,14 @@ public class LoginScreenScript : MonoBehaviour {
 
     private int _playerindex = 0;
 
-    private string _playerName;
-
     private GameManager gameManager;
     
 
 
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); // Find GameManager
+        playerName = userNames[0]; //Set DefaultName
         playerSelection.gameObject.SetActive(true);
         textField.gameObject.SetActive(false);
         createNewUser.SetActive(false);
@@ -49,7 +50,9 @@ public class LoginScreenScript : MonoBehaviour {
     {
         gameObject.SetActive(false);
         gameManager.SetIsPlaying(true);
-        PlayerPrefs.SetString("1", _playerName);
+        //PlayerPrefs.SetString("1", playerName);
+        gameManager.playerNameText.text = playerName;
+        print("Ur name is " + playerName);
     }
 
     public void AddUserButton() //Cliquer sur "+"
@@ -61,15 +64,15 @@ public class LoginScreenScript : MonoBehaviour {
 
     public void CreateNewUser() // Cliquer sur "Créer"
     {
-        _playerName = textField.text;
-        userNames.Add(_playerName);
-        print("Ur name is " + _playerName);
+        playerName = textField.text;
+        userNames.Add(playerName);
         playerSelection.ClearOptions();
         playerSelection.AddOptions(userNames);
         _playerindex++;
-        print(_playerindex);
-        PlayerPrefs.SetString(_playerindex.ToString(), _playerName);
-        newGameUser = new newUser(_playerindex, _playerName);
+        gameManager.playerNameText.text = playerName;
+        //print(_playerindex);
+        //PlayerPrefs.SetString(playerName, playerName);
+        //newGameUser = new newUser(_playerindex, playerName);
         playerSelection.gameObject.SetActive(true);
         createNewUser.SetActive(false);
         textField.gameObject.SetActive(false);
