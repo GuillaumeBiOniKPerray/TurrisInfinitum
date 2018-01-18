@@ -815,26 +815,6 @@ Prefab:
       propertyPath: m_Name
       value: Perso_Test (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114328772000857794, guid: ecb35084a1dad3a4e94de8c8b3c918a6,
-        type: 2}
-      propertyPath: jumpForce
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 54699006315300950, guid: ecb35084a1dad3a4e94de8c8b3c918a6,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54699006315300950, guid: ecb35084a1dad3a4e94de8c8b3c918a6,
-        type: 2}
-      propertyPath: m_Mass
-      value: 3.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114328772000857794, guid: ecb35084a1dad3a4e94de8c8b3c918a6,
-        type: 2}
-      propertyPath: jumpLenght
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb35084a1dad3a4e94de8c8b3c918a6, type: 2}
   m_IsPrefabParent: 0

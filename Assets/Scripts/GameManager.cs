@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public SceneCommunicationScript menuInfo;
 
+    public LeaderBoardScript leaderBoard;
+
     public Text scoreText;
     public Text highscoreText;
     public Text playerNameText;
@@ -18,16 +20,17 @@ public class GameManager : MonoBehaviour {
     public GameObject mainCamera;
     public GameObject moduleSpawner;
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
 
     public GameObject[] modulesPool;
 
     public float upwardSpeed;
 
 
-    private float _actualScore;
+    private int _actualScore;
     private float _scoreDelay;
     private float _camOffset = 15;
-    private float _highScore;
+    private int _highScore;
 
     private bool _scoreUp = true;
     private bool _isPlaying = false;
@@ -53,11 +56,11 @@ public class GameManager : MonoBehaviour {
         scoreText.enabled = true;
         highscoreText.enabled = true;
 
-        if (PlayerPrefs.GetFloat("0", _highScore) < 1) //Check si il a des PlayerPrefs
+        if (PlayerPrefs.GetInt("0", _highScore) < 1) //Check si il a des PlayerPrefs
         {
-            PlayerPrefs.SetFloat("0", 0);
+            PlayerPrefs.SetInt("0", 0);
         }
-        _highScore = PlayerPrefs.GetFloat("0", _highScore); //Set la valeur du highscore en fonction des PlayerPrefs
+        _highScore = PlayerPrefs.GetInt("0", _highScore); //Set la valeur du highscore en fonction des PlayerPrefs
         highscoreText.text = "Highscore : " + _highScore; // Set le texte à l'écran
 
     }
@@ -78,7 +81,7 @@ public class GameManager : MonoBehaviour {
         }        
     }
 
-    public void UpdateScore (float newScore) // fonction de mise à jour du score
+    public void UpdateScore (int newScore) // fonction de mise à jour du score
     {
         _actualScore += newScore;
         scoreText.text = "Score : " + _actualScore; // Affichage à l'écran du score
@@ -115,20 +118,21 @@ public class GameManager : MonoBehaviour {
 
         gameOverPanel.SetActive(true);
         _personalScore.text = "Score : " + _actualScore;
+        leaderBoard.AddScore(playerNameText.text, _actualScore); //Envoie l'info du nom du player et du score au leaderboard 
         scoreText.enabled = false;
         highscoreText.enabled = false;
-        if (PlayerPrefs.GetFloat("0", _highScore) < _actualScore) // Vérifie si le score actuel est + important que le highscore et modifie ce dernier
+        if (PlayerPrefs.GetInt("0", _highScore) < _actualScore) // Vérifie si le score actuel est + important que le highscore et modifie ce dernier
         {
             _highScore = _actualScore;
-            PlayerPrefs.SetFloat("0", _highScore);
+            PlayerPrefs.SetInt("0", _highScore);
             _bestScore.text = "Highscore : " + _highScore;
         }
         else
         {
-            PlayerPrefs.SetFloat("0", _highScore);
+            PlayerPrefs.SetInt("0", _highScore);
             _bestScore.text = "Highscore : " + _highScore;
         }
-        
+
     }
 
     public void RestartLevel(int index) //Restart du niveau
@@ -136,8 +140,34 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(index);
     }
 
-    public void ReturnToMenu (int index) //Retour au menu
+    public void PauseGame () //Retour au menu
+    {
+        _isPlaying = false;
+        pausePanel.SetActive(true);
+        
+    }
+
+    public void ResumeGame() //Retour au menu
+    {
+        if(playerNameText.text != "PlayerName")
+        {
+            _isPlaying = true;
+            pausePanel.SetActive(false);
+        }
+        else
+        {
+            pausePanel.SetActive(false);
+        }
+
+    }
+
+    public void ReturnToMenu(int index)
     {
         SceneManager.LoadScene(index);
+    }
+
+    public int GetPlayerScore()
+    {
+        return _actualScore;
     }
 }

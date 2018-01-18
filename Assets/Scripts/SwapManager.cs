@@ -11,9 +11,9 @@ public class SwapManager : MonoBehaviour {
 
     private void Start()
     {
-        /*PlayerPrefs.DeleteKey("Jaune");
-        PlayerPrefs.DeleteKey("Pink");
-        PlayerPrefs.SetInt("Money", 30);*/
+        //PlayerPrefs.DeleteKey("Jaune");
+        //PlayerPrefs.DeleteKey("Pink");
+        //PlayerPrefs.SetInt("Money", 30);
         actualMoney = PlayerPrefs.GetInt("Money");
 
         if (PlayerPrefs.GetInt("Jaune") != 1)
@@ -67,9 +67,9 @@ public class SwapManager : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("Pink") == 1)
         {
-            print("changement de skin pour " + pinkPlayer);
             //player = yellowPlayer;
             menuInfo.UpdatePlayerPrefab(pinkPlayer);
+            print("changement de skin pour " + pinkPlayer);
         }
 
     }

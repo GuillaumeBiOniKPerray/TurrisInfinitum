@@ -25,6 +25,9 @@ public class DeathZoneScript : MonoBehaviour {
         if(other.gameObject.tag == "Player")
         {
             GameOver();
+            other.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+            other.GetComponent<MeshRenderer>().enabled = false;
+            other.transform.GetChild(1).GetComponent<ParticleSystem>().Stop();
         }
     }
 
