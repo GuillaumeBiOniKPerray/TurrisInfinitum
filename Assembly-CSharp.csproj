@@ -53,12 +53,16 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CamScript.cs" />
      <Compile Include="Assets\Scripts\CheckpointScript.cs" />
+     <Compile Include="Assets\Scripts\Coins_Script.cs" />
+     <Compile Include="Assets\Scripts\CustomPlayer.cs" />
      <Compile Include="Assets\Scripts\DeadZoneScript.cs" />
      <Compile Include="Assets\Scripts\DeathZoneScript.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LoginScreenScript.cs" />
+     <Compile Include="Assets\Scripts\MenuScript.cs" />
      <Compile Include="Assets\Scripts\ModuleRecycling.cs" />
      <Compile Include="Assets\Scripts\PlayerBehavior.cs" />
+     <Compile Include="Assets\Scripts\SceneCommunicationScript.cs" />
      <Compile Include="Assets\Scripts\SwapManager.cs" />
      <Compile Include="Assets\Scripts\Swipe.cs" />
  <Reference Include="UnityEngine.UI">
