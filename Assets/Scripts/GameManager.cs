@@ -135,4 +135,9 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene(index);
     }
+
+    public void ReturnToMenu (int index) //Retour au menu
+    {
+        SceneManager.LoadScene(index);
+    }
 }

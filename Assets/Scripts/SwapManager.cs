@@ -11,8 +11,9 @@ public class SwapManager : MonoBehaviour {
 
     private void Start()
     {
-        PlayerPrefs.DeleteKey("Jaune");
+        /*PlayerPrefs.DeleteKey("Jaune");
         PlayerPrefs.DeleteKey("Pink");
+        PlayerPrefs.SetInt("Money", 30);*/
         actualMoney = PlayerPrefs.GetInt("Money");
 
         if (PlayerPrefs.GetInt("Jaune") != 1)
@@ -34,6 +35,7 @@ public class SwapManager : MonoBehaviour {
             actualMoney -= 30;
             PlayerPrefs.SetInt("Money", actualMoney);
             print("j'ai le skin jaune");
+            //menuInfo.UpdatePlayerPrefab(yellowPlayer);
         }
         else if (PlayerPrefs.GetInt("Jaune") == 0 && PlayerPrefs.GetInt("Money") < 30)
         {
