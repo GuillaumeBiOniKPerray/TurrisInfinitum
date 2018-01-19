@@ -5,16 +5,19 @@ using UnityEngine;
 public class SceneCommunicationScript : MonoBehaviour {
 
     public GameObject player;
-	public static GameObject intance;
+	public static SceneCommunicationScript intance;
 
 
     private void Start()
     {
-		if (intance == null) 
-		{
-			intance = gameObject;
-			DontDestroyOnLoad(gameObject); // Empeche ce script d'être détruit entre les scènes
+		if (intance == null) {
+			intance = this;
+			DontDestroyOnLoad (gameObject); // Empeche ce script d'être détruit entre les scènes
 			//UpdatePlayerPrefab();
+		} 
+		else 
+		{
+			Destroy (gameObject);
 		}
 
     }

@@ -60,7 +60,7 @@ public class SwapManager : MonoBehaviour {
 			menuPerso.GetComponent<Renderer>().material = mat_Yellow;
             print("changement de skin pour " + yellowPlayer);
             //player = yellowPlayer;
-            menuInfo.UpdatePlayerPrefab(yellowPlayer);
+			SceneCommunicationScript.intance.UpdatePlayerPrefab(yellowPlayer);
         }
 
 	}
@@ -85,7 +85,7 @@ public class SwapManager : MonoBehaviour {
         {
             //player = yellowPlayer;
 			menuPerso.GetComponent<Renderer>().material = mat_Pink;
-			menuInfo.UpdatePlayerPrefab(pinkPlayer);
+			SceneCommunicationScript.intance.UpdatePlayerPrefab(pinkPlayer);
             print("changement de skin pour " + pinkPlayer);
 			pinklocker.SetActive(false);
 			pinkunlocker.SetActive (true);

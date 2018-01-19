@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour {
         player = newPlayer;
 
         gameOverPanel.SetActive(false);
-        _personalScore = gameOverPanel.transform.GetChild(0).GetComponent<Text>(); //Get personnal score Text component for gameover panel
+        _personalScore = gameOverPanel.transform.GetChild(1).GetComponent<Text>(); //Get personnal score Text component for gameover panel
         print("personalScore: " + _personalScore.gameObject.name);
-        _bestScore = gameOverPanel.transform.GetChild(1).GetComponent<Text>(); //Get best score Text component for gameover panel
+        _bestScore = gameOverPanel.transform.GetChild(2).GetComponent<Text>(); //Get best score Text component for gameover panel
         print("bestScore: " + _bestScore.gameObject.name);
 
         scoreText.enabled = true;

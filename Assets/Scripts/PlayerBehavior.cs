@@ -35,7 +35,7 @@ public class PlayerBehavior : MonoBehaviour {
 
     void Jump() // Fonction de saut régler sur le swipe vers le haut (ou click and drag avec la souris)
     {
-        if (swipeControls.SwipeUp && _isGrounded)
+		if (Input.GetMouseButtonDown(0) && _isGrounded)
         {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce, -jumpLenght), ForceMode.Impulse);
             _isGrounded = false;
