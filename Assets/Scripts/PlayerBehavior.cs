@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour {
     public float jumpLenght;
 
     private bool _isGrounded = true;
+	private bool _isJumping = false;
 
     void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //Récupère le GameManager sur la scène
@@ -39,6 +40,7 @@ public class PlayerBehavior : MonoBehaviour {
         {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpForce, -jumpLenght), ForceMode.Impulse);
             _isGrounded = false;
+			_isJumping = true;
             GetComponent<Rigidbody>().useGravity = true;
         }
     }
@@ -47,7 +49,12 @@ public class PlayerBehavior : MonoBehaviour {
     {
         if(collision.gameObject.tag =="Ground")
         {
+			if (_isJumping) 
+			{
+				gameObject.transform.GetChild(2).GetComponent<ParticleSystem>().Play();
+			}
             _isGrounded = true;
+			_isJumping = false;
         }
     }
 }
